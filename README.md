@@ -5,10 +5,10 @@
 server.js => локальный сервер node.js возвращает статику для сборки проекта и данные
 
 #### Для запуска проекта необходимо установить:
-> nodejs => v4.4.4
-npm => v2.15.1
-compass => http://compass-style.org/
-sass => http://sass-lang.com/
+> nodejs => v4.4.4  
+npm => v2.15.1  
+compass => http://compass-style.org/  
+sass => http://sass-lang.com/  
 bower => v1.7.9
 
 #### Запустить следующие команды:
