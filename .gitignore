@@ -1,0 +1,50 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# IDE generated files #
+######################
+*.iml
+.idea
+
+# Project files #
+######################
+/bootstrap/compiled.php
+/vendor/*
+composer.phar
+composer.lock
+.htaccess
+.htpasswd
+.env.local.php
+.env.php
+
+# Ruby ignore files #
+#####################
+Gemfile.lock
+.ruby-gemset
+.ruby-version
+
+# NODEJS ignore files #
+######################
+npm-debug.log
+node_modules
+
+# Compass/SASS ignore files #
+#############################
+.sass-cache
+.cache-frontend
+
+# Frontend ignore files #
+#########################
+.tmp
+app/bower
+*.map
+#dist
+#/rs-conf.js

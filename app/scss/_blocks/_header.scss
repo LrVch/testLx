@@ -1,0 +1,32 @@
+.page-header {
+  position: relative;
+  padding-top: 25px;
+
+  @media (min-width: 750px) {
+    padding-bottom: 45px;
+  }
+}
+
+.page-header__menu {
+  @extend %clearfix;
+  border-bottom: 4px solid #ccc;
+}
+
+.page-header__menu-inner {
+  float: right;
+  padding-right: 5px;
+}
+
+.page-header__logo {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+}
+
+.page-header__lenta {
+
+}
+
+
+

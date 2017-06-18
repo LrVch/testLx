@@ -1,0 +1,32 @@
+.lenta {
+  overflow: hidden;
+  visibility: hidden;
+  height: 139px;
+}
+
+.lenta__inner {
+  @extend %clearfix;
+}
+
+.lenta__frame {
+  float: left;
+  padding-top: 24px;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-bottom: 20px;
+  background: url("#{$dir}/frame.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.lenta__img {
+  display: none;
+}
+
+.lenta__img-visible {
+  width: 144px;
+  height: 95px;
+  background-size: cover;
+  background-position: center center;
+}

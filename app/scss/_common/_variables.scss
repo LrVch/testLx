@@ -1,0 +1,46 @@
+$strict-normalize: true;
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: false;
+$inline-block-alignment: top;
+
+
+// font fase
+$font-family-regular: Verdana, Arial, Helvetica, Garuda, sans-serif;
+$font-family-second: Tahoma, Arial, Helvetica, Garuda, sans-serif;
+$font-base-family: $font-family-regular;
+
+
+// font size
+$font-base-size: 10px;
+
+$base-line-height: 12px;
+
+
+//font style
+$font-style-italic: italic;
+
+
+// font width
+$weight-light: 300;
+$weight-normal: 400;
+$weight-semi-bold: 600;
+$weight-bold: 700;
+$weight-extra-bold: 800;
+
+
+// paths
+$dir: "../img";
+$dirIc: "../img/icons";
+
+// colors
+$clrs: (
+  // White
+    base: #333,
+);
+
+$screen-lg: "only screen and (min-width: 1200px)";
+$screen-md: "only screen and (min-width: 992px)";
+$screen-sm: "only screen and (min-width: 768px)";
+$screen-ex: "only screen and (min-width: 480px)";
+$retina: "(min-resolution: 144dpi), (min-resolution: 1.5 dppx)";

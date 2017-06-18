@@ -1,0 +1,84 @@
+.menu {
+
+}
+
+.menu__inner {
+
+}
+
+.menu__list {
+  margin: 0;
+  padding: 0;
+}
+
+.menu__item {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 5px;
+  list-style-type: none;
+}
+
+.menu__link {
+  position: relative;
+  bottom: -4px;
+  z-index: 2;
+  display: block;
+  padding: 9px;
+  padding-bottom: 13px;
+  border-radius: 8px 8px 0 0;
+  @include vertical-gradient ($top-color: #ababab, $bottom-color: #cccccc);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: $weight-bold;
+  color: #000;
+  transition: all .1s;
+
+  &:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: rgb(208, 208, 208);
+    border-radius: 8px;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #000;
+  }
+
+  &:hover {
+    bottom: 0;
+    @include vertical-gradient ($top-color: #ff9900, $bottom-color: lighten(#ff9900, 10));
+
+    &:before {
+      background: lighten(#ff9900, 15);
+    }
+  }
+}
+
+.menu__item--active {
+  .menu__link {
+    padding-bottom: 9px;
+    bottom: -4px;
+    @include vertical-gradient ($top-color: #66b7f1, $bottom-color: #a4d4f7);
+
+    &:before {
+      background: #aadafd;
+    }
+
+    &:hover {
+      bottom: -4px;
+      @include vertical-gradient ($top-color: #66b7f1, $bottom-color: #a4d4f7);
+
+      &:before {
+        background: #aadafd;
+      }
+    }
+  }
+
+}

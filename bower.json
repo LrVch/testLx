@@ -1,0 +1,12 @@
+{
+  "name": "project",
+  "version": "",
+  "homepage": "",
+  "authors": [
+    ""
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "normalize-css": "normalize.css#~3.0.3"
+  }
+}

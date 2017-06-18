@@ -1,0 +1,6 @@
+-var links = [{title: 'Delenit ea Velit  Vero Dolore', href: '#'}, {title: 'Lobortis Quis Suscipit Enim', href: '#'}, {title: 'Tincidunt Aliquip Lobortis Feug', href: '#'}, {title: 'Delenit Quis Vero Dolore', href: '#'}, {title: 'Delenit ea Velit  Vero Dolore', href: '#'}, {title: 'Delenit ea Velit  Vero Dolore', href: '#'}, {title: 'Delenit Quis Vero Dolore', href: '#'}, {title: 'Delenit Quis Vero Dolore', href: '#'}, {title: 'Lobortis Quis Suscipit Enim', href: '#'}, {title: 'Delenit Quis Vero Dolore', href: '#'}, {title: 'Lobortis Quis Suscipit Enim', href: '#'}, {title: 'Lobortis Quis Suscipit Enim', href: '#'}, {title: 'Tincidunt Aliquip Lobortis Feug', href: '#'}, {title: 'Delenit Quis Vero Dolore', href: '#'}, {title: 'Delenit ea Velit  Vero Dolore', href: '#'}];
+
+ul.links-block
+  each link in links
+    li.links-block__item
+      a(href=link.href class="links-block__link")= link.title

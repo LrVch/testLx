@@ -1,0 +1,16 @@
+.links-block {
+  margin: 0;
+  padding: 0;
+}
+
+.links-block__item {
+  list-style-type: none;
+}
+
+.links-block__link {
+    text-decoration: underline;
+    font-size: 10px;
+    line-height: 16px;
+    color: #ff9900;
+    font-weight: $weight-bold;
+}

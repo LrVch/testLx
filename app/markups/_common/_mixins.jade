@@ -1,0 +1,114 @@
+
+- function names(arrNames) {
+-  return ((arrNames != undefined && arrNames !== "") ? arrNames.join(' ') : "" );
+- }
+
+//- социальные иконки
+//- +socials('social', {vk:'в контакте', fb:'фэйсбук', tw:'твиттер'})
+mixin socials(className, items)
+  div(class= className)
+    ul(class= className + "__list")
+      each item, index in items
+        li(class= className + "__item")
+          a(href="#" class= className + "__link " + className + "__link--" + index  title= item)= item
+
+//- навигация
+//- +nav('navigation', ['Главная', 'Новости', "О компании", "Сравнение"], 2)
+mixin nav(className, items, activeIndex)
+  nav(class= className)
+    div(class= className + "__inner")
+      ul(class= className + "__list")
+        each item, index in items
+          li(class=className + "__item")
+            a(href="#" class= className + "__link " + ((activeIndex == index) ? className + '__link' + '--active' : ''))= item
+
+//- навигация для magic-line
+//- +nav('navigation', ['Главная', 'Новости', "О компании", "Сравнение"], 2)
+mixin nav(className, items, activeIndex)
+  nav(class= className)
+    div(class= className + "__inner")
+      ul(class= className + "__list")
+        each item, index in items
+          li(class=className + "__item " + ((activeIndex == index) ? className + '__item' + '--active' : ''))
+            a(href="#" class= className + "__link " + ((activeIndex == index) ? className + '__link' + '--active' : ''))= item
+
+//- простой список с сылками
+//- +links('links', ['Главная', 'Новости', "О компании", "Сравнение"])
+mixin links(className, links)
+  div(class= className)
+    ul(class= className + "__list")
+      each link in links
+        li(class= className + "__item")
+          a(href="#" class= className + "__link")= link
+
+//- простой список с сылками и активным пунктом
+//- +linksActive('links', ['Главная', 'Новости', "О компании", "Сравнение"], 1)
+mixin linksActive(className, links, activeIndex)
+  div(class= className)
+    ul(class= className + "__list")
+      each link, index in links
+        li(class= className + "__item")
+          a(href="#" class= className + "__link " + ((activeIndex == index) ? className + '__link' + '--active' : ''))= link
+
+//- простой список с сылками и активным пунктом и кастомным добавочным классом
+//- +linksActiveChoise('filter', [[["divans",'Диваны'],["Диваны", "Диваны"]], ["armchairs", 'Кресла'], ["tables", "Столы"], ["chairs", "Стулья"], ["mebel", 'Мебель для столовой']], 1, [1, 3], "narrow")
+mixin linksActiveChoise(className, linksArr, activeIndex, choiseArr, choiseClass)
+  div(class= className)
+    ul(class= className + "__list"  id="menu")
+      each link, index in linksArr
+        li(class= className + "__item")
+          a(href="#" class= className + "__link " + " " + className + "__link--" + link[0][0] + " " + ((activeIndex == index) ? className + '__link' + '--active' : '') + " " + ((choiseArr.indexOf(index) !== -1) ? className + '__link' + '--' + choiseClass : ''))= link[0][1]
+          ul(class= className + "__list-drop")
+            each drop, index in link[1]
+              li(class= className + "__item-drop")
+                a(href="#" class= className + "__link-drop")= drop
+
+//- breadcrumbs с разделителем ">" и поледний пункт ссылка
+//- +breadcrumbsA('breadcrumbs', ['Главная', 'Новости', "О компании"], 2)
+mixin breadcrumbsA(className, items, activeIndx)
+  div(class= className)
+    ul(class= className + "__list")
+      each item, index in items
+        li(class=className + "__item")
+          a(href="#" class= className + "__link " + ((items.length == index + 1) ? className + '__link' + '--active' : ''))= (items.length == index + 1) ? item : item + " >"
+
+//- breadcrumbs с разделителем ">" и поледний пункт спан
+//- +breadcrumbs('breadcrumbs', ['Главная', 'Новости', "О компании"], 2)
+mixin breadcrumbs(className, items, activeIndx)
+  div(class= className)
+    ul(class= className + "__list")
+      each item, index in items
+        - if (index != items.length - 1)
+            li(class= className + "__item")
+              a(href="#" class= className + "__link")= (items.length == index + 1) ? item : item + " >"
+        - else
+            li(class= className + "__item")
+              span(class= className + "__link " + className + '__link' + '--active')= item
+
+//- table
+//- +table("className", {typeSim: ["Тип SIM-карты", "Micro-SIM"], typeSim: ["Тип SIM-карты", "Micro-SIM"]})
+mixin table(className, data)
+  table(class= className)
+    each tr in data
+      tr(class= className + "-tr")
+        each td in tr
+          td(class= className + "-td")= td
+
+//- old browser
+mixin oldBrowser
+  <!--[if lt IE 9]>
+  p.browsehappy Ваш браузер 
+    strong устарел
+    | . Пожалуйста 
+    a(href="http://browserhappy.com/" target="_blank") обновите 
+    | его
+  <![endif]-->
+
+//- icon svg
+//- icon-svg("iconName", "customClass", ["red", "blue", "green"])
+mixin icon-svg(iconName, blockClass, arrNames, content)
+  a(href="#" class= ((blockClass != undefined) ? blockClass : "") + " " +  names(arrNames))
+    span(class= ((blockClass != undefined && blockClass != "") ? blockClass + "__span" : ""))= content
+    i(data-icon= iconName  class="icon-svg " + ((blockClass != undefined  && blockClass != "") ? blockClass + "__icon" : ""))
+      svg(class="icon-svg__svg " + ((blockClass != undefined && blockClass != "") ? blockClass + "__svg" : ""))
+        use(xlink:href="#" + iconName)

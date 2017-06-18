@@ -1,0 +1,11 @@
+- var items = [{title:'Home', link: '#'}, {title:'About Us', link: '#'}, {title:'Events', link: '#'}, {title:'Product Catalog', link: '#'}, {title:'Contact Us', link: '#'}, {title:'Helpful Links', link: '#'}, {title:'Our Policies', link: '#'}, {title:'Shopping CartHome', link: '#'}];
+
+footer.page-footer
+  .page-footer__menu
+    .container
+      ul.page-footer__nav
+        - each item in items
+          li.page-footer__nav-item
+            a(class='page-footer__nav-link' href=item.link)= item.title
+  .page-footer__copy
+    | Copyright by Company Name © 2004 All rights Reserved

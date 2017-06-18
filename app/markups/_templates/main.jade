@@ -1,0 +1,69 @@
+include ../_common/_mixins
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="initial-scale=1.0, width=device-width")
+    meta(name="description" content="")
+    meta(name="keywords" content="")
+    meta(name="author" content="")
+
+
+    // build:css css/vendor.min.css 
+    // bower:css
+    // endbower
+    // endbuild 
+
+
+    // build:css css/style.min.css 
+    link(rel="stylesheet" type='text/css' href="css/style.css")
+    // endbuild 
+
+
+    //- link(rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16")
+
+
+    title
+      block title
+
+  body
+
+    // inject:svg 
+    // endinject 
+
+    // wrapper
+    .wrapper
+
+      // maincontent
+      .maincontent
+
+        // header
+        block header
+        // END header
+
+        // content
+        block content
+        // END content
+
+      // END maincontent
+
+      // footer
+      block footer
+      // END footer
+
+    // END wrapper
+
+
+    //- scripts
+
+    // build:js js/vendor.min.js 
+    // bower:js
+    // endbower
+    // endbuild 
+
+
+    // build:js js/script.min.js 
+    script(src="js/script.js")
+    // endbuild 

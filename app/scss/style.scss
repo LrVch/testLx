@@ -1,0 +1,43 @@
+// common blocks
+// common blocks
+// common blocks
+// common blocks
+//===============================================
+
+@import "compass";
+
+// bootstrap
+@import "_bootstrap/_bootstrap_custom";
+// => END bootstrap
+
+//@import "_common/_normalize";
+@import "_common/_variables";
+@import "_common/_mixins";
+@import "_common/_helpers";
+@import "_styleguide/_typography";
+@import "_styleguide/_btns";
+@import "_styleguide/_forms";
+// @import "_components/_oldbrowser";
+@import "_layout/_base";
+@import "_layout/_grid";
+@import "_styleguide/_icons-svg-inject";
+// => END common
+
+// project blocks
+//===============================================
+@import "_blocks/_herosection";
+@import "_blocks/_header";
+@import "_blocks/_footer";
+@import "_blocks/_content";
+@import "_blocks/_news";
+@import "_blocks/_news-item";
+@import "_blocks/_bg-col";
+@import "_blocks/_plain-col";
+@import "_blocks/_bg-block";
+@import "_blocks/_plain-block";
+@import "_blocks/_links-block";
+@import "_blocks/_card-block";
+@import "_blocks/_logo";
+@import "_blocks/_menu";
+@import "_blocks/_lenta";
+

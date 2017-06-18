@@ -1,0 +1,211 @@
+@mixin image-replacement() {
+  border: 0;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+@mixin inline-block($valign: $inline-block-alignment) {
+  display: inline-block;
+  vertical-align: $valign;
+  @if ($legacy-support-for-ie7 or $legacy-support-for-ie6) {
+    *display: inline;
+    zoom: 1;
+  }
+}
+
+@mixin opacity($opacity) {
+  @if ($legacy-support-for-ie8 or $legacy-support-for-ie7 or $legacy-support-for-ie6) {
+    filter: unquote("progid:DXImageTransform.Microsoft.Alpha(opacity=#{round($opacity * 100)})");
+  }
+  opacity: $opacity;
+}
+
+@mixin font-size($font-size) {
+  font-size: ($font-size) + px;
+  @if ($font-size > 16) {
+    font-size: ($font-size/$font-base-size-unit) + rem;
+  }
+}
+
+@mixin letter-spacing($lspacing) {
+  letter-spacing: ($lspacing / 1200) + em;
+}
+
+@mixin line-height($lheight, $fontSize) {
+  line-height: ($lheight / $fontSize) + em;
+}
+
+@mixin text-overflow($max-width) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  @if ($max-width !=full) {
+    max-width: $max-width;
+  }
+}
+
+@mixin arrow($width, $height, $direction, $color) {
+  height: 0;
+  width: 0;
+  @if ($direction==right) {
+    border-top: $height/2 solid transparent;
+    border-bottom: $height/2 solid transparent;
+    border-left: $width solid $color;
+  }
+  @if ($direction==left) {
+    border-top: $height/2 solid transparent;
+    border-bottom: $height/2 solid transparent;
+    border-right: $width solid $color;
+  }
+  @if ($direction==up) {
+    border-left: $width/2 solid transparent;
+    border-right: $width/2 solid transparent;
+    border-bottom: $height solid $color;
+  }
+  @if ($direction==down) {
+    border-left: $width/2 solid transparent;
+    border-right: $width/2 solid transparent;
+    border-top: $height solid $color;
+  }
+}
+
+@mixin arrow-stroke($width, $height, $background, $stroke, $color, $direction) {
+  background: $background;
+  border: solid $color;
+  height: $height;
+  width: $width;
+  @if ($direction==top) {
+    border-width: $stroke $stroke 0 0;
+    transform: rotate(-45deg);
+  }
+  @if ($direction==right) {
+    border-width: $stroke $stroke 0 0;
+    transform: rotate(45deg);
+  }
+  @if ($direction==bottom) {
+    border-width: 0 $stroke $stroke 0;
+    transform: rotate(45deg);
+  }
+  @if ($direction==left) {
+    border-width: $stroke 0 0 $stroke;
+    transform: rotate(-45deg);
+  }
+}
+// для spritesmith
+@mixin sprites-img {
+  background-image: url("#{$dir}/sprite.png");
+  background-repeat: no-repeat;
+}
+
+@mixin sprites-pos($key) {
+  @if $key==fb {
+    background-position: 0 -577px;
+    &:hover {
+      background-position: 0 -477px;
+    }
+  }
+  @if $key==vk {
+    background-position: 0 -827px;
+    &:hover {
+      background-position: 0 -777px;
+    }
+  }
+  @if $key==tw {
+    background-position: 0 -727px;
+    &:hover {
+      background-position: 0 -677px;
+    }
+  }
+  @if $key==gh {
+    background-position: 0 -877px;
+    &:hover {
+      background-position: 0 -527px;
+    }
+  }
+}
+
+// генерация спрайтов для compass
+@mixin get-sprite ($map,
+$icon) {
+  $sprite-image: sprite-file($map, $icon);
+  $sprite-map: sprite-url($map);
+  $sprite-position: sprite-position($map, $icon);
+  background: $sprite-map $sprite-position no-repeat;
+  $sprite-height: image-height($sprite-image);
+  $sprite-width: image-width($sprite-image);
+  height: $sprite-height;
+  width: $sprite-width;
+}
+// пример вызова примеси генерации спрайтов компасом
+//$socials:(vk: vk--hover, tw: tw--hover, fb: fb--hover);
+//$icons-map: sprite-map('icons/*.png', $spacing: 70px, $layout: vertical);
+//@each $social, $hover in $socials {
+//  .socials__link--#{$social} {
+//    @include get-sprite($icons-map, $social);
+//  }
+//  .socials__link--#{$social}:hover {
+//    @include get-sprite($icons-map, $hover); 
+//  }
+//}
+
+
+
+
+@mixin inlineblock {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+
+@mixin border-radius ($radius: 5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius:    $radius;
+  border-radius:         $radius;
+
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
+}
+
+@mixin box-shadow ($string...) {
+  -webkit-box-shadow: $string;
+  -moz-box-shadow:    $string;
+  box-shadow:         $string;
+}
+
+@mixin transition ($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition:    $transition;
+  -ms-transition:     $transition;
+  -o-transition:      $transition;
+  transition:      $transition;
+}
+
+
+@mixin placecolor($color: #000000) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    &:-moz-placeholder {
+        color: $color;
+    }
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+}
+
+@mixin vertical-gradient ($top-color: #ffffff, $bottom-color: #000000) {
+  background-color: $top-color;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($top-color), to($bottom-color)); /* Chrome, Safari 4+ */
+  background-image: -webkit-linear-gradient(top, $top-color, $bottom-color); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+  background-image:    -moz-linear-gradient(top, $top-color, $bottom-color); /* Firefox 3.6-15 */
+  background-image:      -o-linear-gradient(top, $top-color, $bottom-color); /* Opera 11.10-12.00 */
+  background-image:         linear-gradient(to bottom, $top-color, $bottom-color); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  //filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=$top-color, EndColorStr=$bottom-color);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#{$top-color}, endColorstr=#{$bottom-color});/*For IE7-8-9*/ 
+}

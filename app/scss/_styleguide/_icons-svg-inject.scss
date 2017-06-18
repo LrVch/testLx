@@ -1,0 +1,72 @@
+//vars
+$icon-svg-height: 28;
+$icon-svg-width: 28;
+$icon-svg-l-width: 36;
+$icon-svg-l-height: 36;
+$icon-svg-s-width: 22;
+$icon-svg-s-height: 22;
+$icon-svg-xs-width: 16;
+$icon-svg-xs-height: 16;
+
+.icon-svg {
+  position: relative;
+  width: $icon-svg-width + px;
+  height: $icon-svg-height + px;
+  line-height: $icon-svg-height + px;
+  display: inline-block;
+  vertical-align: baseline;
+  fill: currentColor;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:after {
+    content: '\a0';
+  }
+}
+
+.icon-svg__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0);
+  -ms-transform: translate(0, .5px);
+}
+
+.icon-svg--l {
+  width: ($icon-svg-l-width - $icon-svg-width) + $icon-svg-width + px;
+  height: ($icon-svg-l-width - $icon-svg-height) + $icon-svg-height + px;
+  line-height: ($icon-svg-l-width - $icon-svg-height) + $icon-svg-height + px;
+}
+
+.icon-svg--s {
+  width: ($icon-svg-s-width - $icon-svg-width) + $icon-svg-width + px;
+  height: ($icon-svg-s-width - $icon-svg-height) + $icon-svg-height + px;
+  line-height: ($icon-svg-s-width - $icon-svg-height) + $icon-svg-height + px;
+}
+
+.icon-svg--xs {
+  width: ($icon-svg-xs-width - $icon-svg-width) + $icon-svg-width + px;
+  height: ($icon-svg-xs-width - $icon-svg-height) + $icon-svg-height + px;
+  line-height: ($icon-svg-xs-width - $icon-svg-height) + $icon-svg-height + px;
+}
+
+// a,
+// .apseudo {
+//   .icon-svg {
+//     color: @blueGreyLight;
+//   }
+//   &:hover .icon-svg {
+//     color: @greenLight-hover;
+//   }
+// }
+
+body > svg {
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+}

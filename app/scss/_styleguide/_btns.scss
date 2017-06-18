@@ -1,0 +1,25 @@
+.btn {
+  //@extend %no-link;
+  //@extend %no-btn;
+
+  &:hover {
+    
+  }
+  &:active {
+    
+  }
+}
+
+.ie-btn-fix * {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    position: relative !important;
+}
+
+%custom-class {
+  background: map-get($clrs, red);
+  border-color: map-get($clrs, blue);
+}
